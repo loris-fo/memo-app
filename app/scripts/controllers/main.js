@@ -9,7 +9,7 @@
  */
 angular.module('memoAppApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.memos = ['sleep','work','eat','again'];
+    $scope.memos = [];
 
     $scope.addMemo = function () {
       $scope.memos.push($scope.memo);

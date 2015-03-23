@@ -12,10 +12,12 @@
     </div>
   </form>
   <br>
-  <p class="input-group" ng-repeat="memo in memos">
-    <input type="text" ng-model="memo" class="form-control">
-    <span class="input-group-btn">
-      <button class="btn btn-danger" ng-click="removeMemo($index)" aria-label="Remove">X</button>
-    </span>
-  </p>
+  <div ui-sortable ng-model="memos">
+    <p class="input-group" ng-repeat="memo in memos" style="padding:5px 10px; cursor: move;">
+      <input type="text" ng-model="memo" class="form-control">
+      <span class="input-group-btn">
+        <button class="btn btn-danger" ng-click="removeMemo($index)" aria-label="Remove">X</button>
+      </span>
+    </p>
+  </div>
 </div>
