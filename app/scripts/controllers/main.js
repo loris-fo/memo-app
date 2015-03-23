@@ -8,8 +8,14 @@
  * Controller of the memoAppApp
  */
 angular.module('memoAppApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.memos = [];
+  .controller('MainCtrl', function ($scope, localStorageService) {
+    var todosInStore = localStorageService.get('memos');
+
+    $scope.memos = todosInStore || [];
+
+    $scope.$watch('memos', function () {
+      localStorageService.set('memos', $scope.memos);
+    }, true);
 
     $scope.addMemo = function () {
       $scope.memos.push($scope.memo);
